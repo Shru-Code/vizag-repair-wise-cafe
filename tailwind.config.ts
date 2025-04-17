@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,27 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Custom colors for Greenwise
+				greenwise: {
+					50: '#f2fcf5',
+					100: '#e6f9eb',
+					200: '#bfefcc',
+					300: '#99e5ad',
+					400: '#4dd170',
+					500: '#00bd32',
+					600: '#00aa2d',
+					700: '#008d26',
+					800: '#00711e',
+					900: '#005c18',
+				},
+				earth: {
+					100: '#f7f3e9',
+					200: '#e8d7b4',
+					300: '#d5ba83',
+					400: '#c2a36a',
+					500: '#a88a52',
+				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +105,22 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out forwards',
 			}
 		}
 	},
