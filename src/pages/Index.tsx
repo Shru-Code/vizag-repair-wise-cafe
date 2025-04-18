@@ -9,6 +9,7 @@ import ContactForm from '@/components/ContactForm';
 import RepairabilityChecker from '@/components/RepairabilityChecker';
 import Feedback from '@/components/Feedback';
 import Footer from '@/components/Footer';
+import RepairEducation from '@/components/RepairEducation';
 
 const Index = () => {
   // Make sure document has smooth scrolling for navigation
@@ -24,6 +25,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       <BlockDiagram />
+      <RepairEducation />
       <EventSchedule />
       <AboutUs />
       <RepairabilityChecker />
