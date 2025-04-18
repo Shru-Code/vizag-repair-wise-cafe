@@ -9,7 +9,7 @@ import {
 import { Card } from "@/components/ui/card";
 import { 
   Wrench, 
-  Tool, 
+  Hammer, // Replacing Tool with Hammer
   Lightbulb, 
   ShieldAlert, 
   Scroll,
@@ -30,7 +30,7 @@ const repairGuides = [
   },
   {
     title: "Basic Tool Kit",
-    icon: <Tool className="h-5 w-5" />,
+    icon: <Hammer className="h-5 w-5" />, // Using Hammer icon instead of Tool
     content: [
       "Screwdrivers (Phillips and flathead)",
       "Pliers and wire cutters",
