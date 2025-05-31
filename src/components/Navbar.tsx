@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X, Leaf } from 'lucide-react';
+import AuthButton from './AuthButton';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -66,10 +67,12 @@ const Navbar = () => {
             >
               Volunteer
             </Button>
+            <AuthButton />
           </div>
 
           {/* Mobile Navigation Toggle */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-2">
+            <AuthButton />
             <Button 
               variant="ghost" 
               size="icon" 

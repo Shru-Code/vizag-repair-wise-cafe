@@ -3,6 +3,7 @@ import React from 'react';
 import { CalendarDays, Clock, MapPin } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import EventRegistration from './EventRegistration';
 
 const events = [
   {
@@ -68,12 +69,7 @@ const EventSchedule = () => {
                   </div>
                 </div>
                 
-                <Button 
-                  className="w-full bg-greenwise-600 hover:bg-greenwise-700 text-white" 
-                  size="sm"
-                >
-                  Register for Event
-                </Button>
+                <EventRegistration eventId={event.id} eventTitle={event.title} />
               </CardContent>
             </Card>
           ))}
