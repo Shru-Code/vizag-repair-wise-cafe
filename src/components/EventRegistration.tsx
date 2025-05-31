@@ -31,12 +31,16 @@ const EventRegistration: React.FC<EventRegistrationProps> = ({ eventId, eventTit
     setLoading(true);
     try {
       // Check if user is already registered
-      const { data: existingRegistration } = await supabase
+      const { data: existingRegistration, error: checkError } = await supabase
         .from('event_registrations')
         .select('id')
         .eq('event_id', eventId)
         .eq('user_id', user.id)
-        .single();
+        .maybeSingle();
+
+      if (checkError && checkError.code !== 'PGRST116') {
+        throw checkError;
+      }
 
       if (existingRegistration) {
         toast({
@@ -50,13 +54,11 @@ const EventRegistration: React.FC<EventRegistrationProps> = ({ eventId, eventTit
       // Register user for the event
       const { error } = await supabase
         .from('event_registrations')
-        .insert([
-          {
-            event_id: eventId,
-            user_id: user.id,
-            event_title: eventTitle,
-          }
-        ]);
+        .insert({
+          event_id: eventId,
+          user_id: user.id,
+          event_title: eventTitle,
+        });
 
       if (error) {
         throw error;
