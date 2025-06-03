@@ -17,7 +17,7 @@ const AboutUs = () => {
               We organize free repair events where skilled volunteers help residents fix their broken household items, from electronics and clothing to furniture and bicycles. But we don't just fix things for you—we teach you how to make the repairs yourself!
             </p>
             <p className="text-lg text-gray-700 mb-6">
-              Founded in 2023, our mission is aligned with the United Nations Sustainable Development Goal 12 (Responsible Consumption and Production), particularly target 12.5 which aims to substantially reduce waste generation through prevention, reduction, recycling, and reuse.
+              Our mission is aligned with the United Nations Sustainable Development Goal 12 (Responsible Consumption and Production), particularly target 12.5 which aims to substantially reduce waste generation through prevention, reduction, recycling, and reuse.
             </p>
           </div>
           <div className="lg:w-1/2">
