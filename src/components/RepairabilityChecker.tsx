@@ -19,6 +19,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Lightbulb, CheckCircle, XCircle, AlertCircle } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { useAuth } from '@/contexts/AuthContext';
 
 const itemCategories = [
   { value: "electronics", label: "Electronics & Appliances" },
@@ -36,19 +38,20 @@ type ResultType = {
 };
 
 const RepairabilityChecker = () => {
+  const { user } = useAuth();
   const [itemName, setItemName] = useState('');
   const [category, setCategory] = useState('');
   const [issue, setIssue] = useState('');
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<ResultType | null>(null);
 
-  const handleCheck = () => {
+  const handleCheck = async () => {
     if (!itemName || !category || !issue) return;
     
     setLoading(true);
     
-    // Simulate AI processing with pre-defined responses based on category
-    setTimeout(() => {
+    try {
+      // Simulate AI processing with pre-defined responses based on category
       let simulatedResult: ResultType;
       
       if (category === 'electronics') {
@@ -97,9 +100,30 @@ const RepairabilityChecker = () => {
         };
       }
       
+      // Save assessment to database
+      const { error } = await supabase
+        .from('repairability_assessments')
+        .insert({
+          user_id: user?.id || null,
+          item_name: itemName,
+          category: category,
+          issue_description: issue,
+          repairability_score: simulatedResult.repairability,
+          ai_message: simulatedResult.message,
+          ai_tips: simulatedResult.tips,
+        });
+
+      if (error) {
+        console.error('Error saving assessment:', error);
+        // Continue with showing result even if saving fails
+      }
+
       setResult(simulatedResult);
+    } catch (error) {
+      console.error('Error processing assessment:', error);
+    } finally {
       setLoading(false);
-    }, 2000);
+    }
   };
 
   const resetForm = () => {

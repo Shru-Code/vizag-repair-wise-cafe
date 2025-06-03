@@ -11,8 +11,9 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { MessageSquare, Star } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
 
 const Feedback = () => {
   const { toast } = useToast();
@@ -22,15 +23,26 @@ const Feedback = () => {
   const [comments, setComments] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email || !rating || !comments) return;
     
     setLoading(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      const { error } = await supabase
+        .from('feedback')
+        .insert({
+          name,
+          email,
+          rating: parseInt(rating),
+          comments,
+        });
+
+      if (error) {
+        throw error;
+      }
+
       toast({
         title: "Feedback submitted!",
         description: "Thank you for sharing your experience with Greenwise Repair Cafe.",
@@ -41,7 +53,16 @@ const Feedback = () => {
       setEmail('');
       setRating('');
       setComments('');
-    }, 1500);
+    } catch (error: any) {
+      console.error('Error submitting feedback:', error);
+      toast({
+        title: "Error",
+        description: "Failed to submit feedback. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
