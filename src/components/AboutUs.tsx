@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Recycle, HandHelping, Leaf, Lightbulb, Heart, Trash2 } from 'lucide-react';
+import { Recycle, HandHelping, Lightbulb, Trash2 } from 'lucide-react';
 
 const AboutUs = () => {
   return (
@@ -19,35 +19,6 @@ const AboutUs = () => {
             <p className="text-lg text-gray-700 mb-6">
               Founded in 2023, our mission is aligned with the United Nations Sustainable Development Goal 12 (Responsible Consumption and Production), particularly target 12.5 which aims to substantially reduce waste generation through prevention, reduction, recycling, and reuse.
             </p>
-            <div className="mt-10">
-              <h3 className="text-2xl font-bold text-greenwise-800 mb-4">Our Impact</h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div className="text-center p-4 bg-greenwise-50 rounded-lg">
-                  <p className="text-3xl font-bold text-greenwise-700">500+</p>
-                  <p className="text-sm text-gray-600">Items Repaired</p>
-                </div>
-                <div className="text-center p-4 bg-greenwise-50 rounded-lg">
-                  <p className="text-3xl font-bold text-greenwise-700">20+</p>
-                  <p className="text-sm text-gray-600">Events Hosted</p>
-                </div>
-                <div className="text-center p-4 bg-greenwise-50 rounded-lg">
-                  <p className="text-3xl font-bold text-greenwise-700">1500kg+</p>
-                  <p className="text-sm text-gray-600">Waste Diverted</p>
-                </div>
-                <div className="text-center p-4 bg-greenwise-50 rounded-lg">
-                  <p className="text-3xl font-bold text-greenwise-700">30+</p>
-                  <p className="text-sm text-gray-600">Skilled Volunteers</p>
-                </div>
-                <div className="text-center p-4 bg-greenwise-50 rounded-lg">
-                  <p className="text-3xl font-bold text-greenwise-700">800+</p>
-                  <p className="text-sm text-gray-600">People Served</p>
-                </div>
-                <div className="text-center p-4 bg-greenwise-50 rounded-lg">
-                  <p className="text-3xl font-bold text-greenwise-700">5</p>
-                  <p className="text-sm text-gray-600">Locations Across Vizag</p>
-                </div>
-              </div>
-            </div>
           </div>
           <div className="lg:w-1/2">
             <h3 className="text-2xl font-bold text-greenwise-800 mb-6">Why We Matter</h3>

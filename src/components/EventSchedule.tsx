@@ -2,7 +2,6 @@
 import React from 'react';
 import { CalendarDays, Clock, MapPin } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import EventRegistration from './EventRegistration';
 
 const events = [
@@ -73,12 +72,6 @@ const EventSchedule = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
-        
-        <div className="mt-10 text-center">
-          <Button variant="outline" className="border-greenwise-600 text-greenwise-700 hover:bg-greenwise-50">
-            View All Events
-          </Button>
         </div>
       </div>
     </section>
