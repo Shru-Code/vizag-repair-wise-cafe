@@ -10,6 +10,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  base: mode === 'production' ? '/vizag-repair-wise-cafe/' : '/',
   plugins: [
     react(),
     mode === 'development' &&
